@@ -9,7 +9,7 @@
           </el-input>
         </div>
         <div>
-          <el-button type="primary" @click="dialogTableVisible = true">添加商品</el-button>
+          <el-button type="primary" @click="addgoods">添加商品</el-button>
         </div>
       </div>
       <rolelist :roles="goods" :index-options="indexOptions" :columns="columns">
@@ -108,6 +108,10 @@ export default {
         pagenum: this.pagenum,
         pagesize: this.pagesize
       });
+    },
+    addgoods() {
+      //   this.$router.push({ name: "addgoodss" });
+      this.$router.push("/goods/addgoods");
     }
   },
   //页面初始化方法
