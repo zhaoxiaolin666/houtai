@@ -94,7 +94,6 @@
       <el-tree
         :data="rights"
         :props="defaultProps"
-        @node-click="handleNodeClick"
         show-checkbox
         node-key="id"
         default-expand-all
@@ -273,9 +272,6 @@ export default {
           }
         });
       }
-    },
-    handleNodeClick(data) {
-      console.log(data, "data");
     },
     //取消分配
     dialogbranchVisible222() {

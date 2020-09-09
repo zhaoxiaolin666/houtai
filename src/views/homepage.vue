@@ -31,7 +31,7 @@ export default {
 .home {
   position: relative;
   border: 1px solid #ccc;
-  height: 700px;
+  height: 68vh;
 }
 .homepage {
   position: absolute;

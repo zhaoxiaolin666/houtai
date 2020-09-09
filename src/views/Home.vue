@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="height:95vh;">
     <div>
       <el-container>
         <el-header style="background:#f2f2f2;">
@@ -51,8 +51,8 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-// .cont {
-//   height: 700px;
-//   overflow: auto;
-// }
+.cont {
+  height: 70vh;
+  overflow: auto;
+}
 </style>

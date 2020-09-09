@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="border-right:1px solid #ccc;height:100vh;">
+    <div style="border-right:1px solid #ccc;height:85vh;">
       <el-row>
         <el-col>
           <el-menu :default-active="$route.path" class="el-menu-vertical-demo" router unique-opened>

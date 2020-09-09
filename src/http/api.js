@@ -89,4 +89,58 @@ export default {
             `orders?query=${query}&pagenum=${pagenum}&pagesize=${pagesize}&user_id=${user_id}&pay_status=${pay_status}&is_send=${is_send}&order_fapiao_title=${order_fapiao_title}&order_fapiao_company=${order_fapiao_company}&order_fapiao_content=${order_fapiao_content}&consignee_addr=${consignee_addr}`
         );
     },
+    //封装查看物流信息
+    getkuaidiid({ id }) {
+        return service.get(`/kuaidi/${id}`);
+    },
+    //封装商品列表
+    getgoods({ query, pagenum, pagesize }) {
+        return service.get(
+            `goods?query=${query}&pagenum=${pagenum}&pagesize=${pagesize}`
+        );
+    },
+    //封装商品分类
+    getcategories({ type, pagenum, pagesize }) {
+        return service.get(
+            `categories?type=${type}&pagenum=${pagenum}&pagesize=${pagesize}`
+        );
+    },
+    //封装分类参数列表
+    getcategoriesattributes({ id, sel }) {
+        return service.get(`categories/${id}/attributes?sel=${sel}`);
+    },
+    //封装添加动态参数或者静态属性
+    postcategoriesattributes({ id, attr_name, attr_sel }) {
+        return service.post(`categories/${id}/attributes`, {
+            attr_name,
+            attr_sel,
+        });
+    },
+    //封装添加分类
+    postcategories({ cat_pid, cat_name, cat_level }) {
+        return service.post("categories", { cat_pid, cat_name, cat_level });
+    },
+    //封装删除分类
+    deletecategories({ id }) {
+        return service.delete(`categories/${id}`);
+    },
+    //封装编辑分类
+    putcategories({ id, cat_name }) {
+        return service.put(`categories/${id}`, { cat_name });
+    },
+    //封装删除参数
+    deletecategoriesattrid({ id, attrid }) {
+        return service.delete(`categories/${id}/attributes/${attrid}`);
+    },
+    //封装编辑提交参数
+    putcategoriesattrId({ id, attrId, attr_name, attr_sel }) {
+        return service.put(`categories/${id}/attributes/${attrId}`, {
+            attr_name,
+            attr_sel,
+        });
+    },
+    //封装删除分类
+    deletecategoriesid({ id }) {
+        return service.delete(`goods/${id}`);
+    },
 };

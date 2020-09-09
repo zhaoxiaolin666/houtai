@@ -1,6 +1,7 @@
 import api from "../../http/api";
 import router from "../../router";
 import { Message } from "element-ui";
+import dayjs from "dayjs";
 // import Vue from "vue";
 export default {
     //开启命名空间，这个文件是单独的一个vuex模块
@@ -14,6 +15,11 @@ export default {
         reportstype: {}, //统计数据
         rights: [], //权限
         orders: [], //订单列表
+        kuaidiid: [], //快递内容
+        goods: [], //商品列表数据
+        categories: [], //分类商品
+        attributes: [], //商品分类参数
+        totals: 0, //分类列表长度
     },
     mutations: {
         //相当于方法
@@ -36,17 +42,33 @@ export default {
             state.rights = data;
         },
         setcommitdelete(state, { roleId, data }) {
-            console.log(state.roles, "state.roles");
-            console.log(roleId);
-            console.log(data);
+            // console.log(state.roles, "state.roles");
+            // console.log(roleId);
+            // console.log(data);
             state.roles.map((item) => {
                 if (item.id === roleId) {
                     item.children = data;
                 }
             });
+            console.log(state.roles, "state.roles");
         },
         setorders(state, data) {
             state.orders = data;
+        },
+        setkuaidiid(state, data) {
+            state.kuaidiid = data;
+        },
+        setgoods(state, data) {
+            state.goods = data;
+        },
+        setcategories(state, data) {
+            state.categories = data;
+        },
+        settotals(state, data) {
+            state.totals = data;
+        },
+        setattributes(state, data) {
+            state.attributes = data;
         },
     },
     actions: {
@@ -291,7 +313,7 @@ export default {
                 if (res.meta.status === 200) {
                     console.log(roleId, "roleId");
                     Message.success(res.meta.msg);
-                    console.log(res, "删除角色指定权限请求");
+                    console.log(res.data, "删除角色指定权限请求");
                     commit("setcommitdelete", { roleId: roleId, data: res.data });
                 }
             } catch (err) {
@@ -326,8 +348,164 @@ export default {
                 });
                 if (res.meta.status === 200) {
                     Message.success(res.meta.msg);
-                    commit("setorders", res.data.goods);
-                    console.log(commit);
+                    let a = res.data.goods;
+                    a.map((item) => {
+                        item.update_time = dayjs(item.update_time).format(
+                            "YYYY-MM-DD HH:mm:ss"
+                        );
+                    });
+                    commit("setorders", a);
+                    // console.log(commit);
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        },
+        //18.查看物流信息请求
+        async getkuaidiid({ commit }, { id }) {
+            try {
+                let res = await api.getkuaidiid({ id });
+                if (res.meta.status === 200) {
+                    console.log(res, "查看物流消息");
+                    commit("setkuaidiid", res.data);
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        },
+        //19.商品列表数据
+        async getgoods({ commit }, { query, pagenum, pagesize }) {
+            try {
+                let res = await api.getgoods({ query, pagenum, pagesize });
+                if (res.meta.status === 200) {
+                    let a = res.data.goods;
+                    a.map((item) => {
+                        item.upd_time = dayjs(item.upd_time).format("YYYY-MM-DD HH:mm:ss");
+                    });
+                    console.log(res, "查看物流消息");
+                    commit("setgoods", a);
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        },
+        //20.商品分类请求
+        async getcategories({ commit }, { type, pagenum, pagesize }) {
+            try {
+                let res = await api.getcategories({ type, pagenum, pagesize });
+                if (res.meta.status === 200) {
+                    Message.success(res.meta.msg);
+                    console.log(res, "商品分类请求");
+                    commit("setcategories", res.data.result);
+                    commit("settotals", res.data.total);
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        },
+        //21.商品分类参数请求
+        async getcategoriesattributes({ commit }, { id, sel }) {
+            try {
+                let res = await api.getcategoriesattributes({ id, sel });
+                if (res.meta.status === 200) {
+                    Message.success(res.meta.msg);
+                    console.log(res, "商品参数列表");
+                    commit("setattributes", res.data);
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        },
+        //22.添加分类请求
+        async postcategories({ dispatch }, { cat_pid, cat_name, cat_level, type, pagenum, pagesize }) {
+            try {
+                let res = await api.postcategories({ cat_pid, cat_name, cat_level });
+                if (res.meta.status === 201) {
+                    Message.success(res.meta.msg);
+                    dispatch("getcategories", { type, pagenum, pagesize });
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        },
+        //23.删除分类请求
+        async deletecategories({ dispatch }, { id, type, pagenum, pagesize }) {
+            try {
+                let res = await api.deletecategories({ id, type, pagenum, pagesize });
+                if (res.meta.status === 200) {
+                    Message.success(res.meta.msg);
+                    dispatch("getcategories", { type, pagenum, pagesize });
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        },
+        //24.编辑分类请求
+        async putcategories({ dispatch }, { id, cat_name, type, pagenum, pagesize }) {
+            try {
+                let res = await api.putcategories({ id, cat_name });
+                if (res.meta.status === 200) {
+                    Message.success(res.meta.msg);
+                    dispatch("getcategories", { type, pagenum, pagesize });
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        },
+        //25.添加动态参数或者静态属性
+        async postcategoriesattributes({ dispatch }, { id, attr_name, attr_sel }) {
+            try {
+                let res = await api.postcategoriesattributes({
+                    id,
+                    attr_name,
+                    attr_sel,
+                });
+                if (res.meta.status === 201) {
+                    Message.success(res.meta.msg);
+                    dispatch("getcategoriesattributes", { id: id, sel: attr_sel });
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        },
+        //26.删除参数请求
+        async deletecategoriesattrid({ dispatch }, { id, attrid, sel }) {
+            try {
+                let res = await api.deletecategoriesattrid({ id, attrid });
+                console.log(res, "删除参数请求");
+                if (res.meta.status === 200) {
+                    Message.success(res.meta.msg);
+                    dispatch("getcategoriesattributes", { id: id, sel: sel });
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        },
+        //27.编辑提交参数请求
+        async putcategoriesattrId({ dispatch }, { id, attrId, attr_name, attr_sel }) {
+            try {
+                let res = await api.putcategoriesattrId({
+                    id,
+                    attrId,
+                    attr_name,
+                    attr_sel,
+                });
+                if (res.meta.status === 200) {
+                    Message.success(res.meta.msg);
+                    dispatch("getcategoriesattributes", { id: id, sel: attr_sel });
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        },
+        //28.删除分类
+        async deletecategoriesid({ dispatch }, { id, query, pagenum, pagesize }) {
+            try {
+                let res = await api.deletecategoriesid({ id });
+                if (res.meta.status === 200) {
+                    Message.success(res.meta.msg);
+                    console.log(query, pagenum, pagesize);
+                    dispatch("getgoods", { query, pagenum, pagesize });
                 }
             } catch (err) {
                 console.log(err);

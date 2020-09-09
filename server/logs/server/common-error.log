@@ -5002,3 +5002,93 @@ name: "unhandledExceptionError"
 pid: 4828
 hostname: DESKTOP-3JDLG0E
 
+2020-09-08 11:33:37,937 ERROR 10084 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:205:27)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 10084
+hostname: DESKTOP-3JDLG0E
+
+2020-09-08 12:36:05,888 ERROR 10084 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:205:27)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 10084
+hostname: DESKTOP-3JDLG0E
+
+2020-09-08 13:37:08,266 ERROR 10084 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:205:27)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 10084
+hostname: DESKTOP-3JDLG0E
+
+2020-09-08 14:38:25,023 ERROR 10084 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:205:27)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 10084
+hostname: DESKTOP-3JDLG0E
+
+2020-09-08 17:52:28,505 ERROR 10084 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:205:27)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 10084
+hostname: DESKTOP-3JDLG0E
+
+2020-09-09 10:12:04,857 ERROR 3908 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:205:27)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 3908
+hostname: DESKTOP-3JDLG0E
+
+2020-09-09 11:12:36,683 ERROR 3908 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:205:27)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 3908
+hostname: DESKTOP-3JDLG0E
+
+2020-09-09 12:13:41,180 ERROR 3908 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:205:27)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 3908
+hostname: DESKTOP-3JDLG0E
+
+2020-09-09 13:16:49,266 ERROR 3908 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:205:27)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 3908
+hostname: DESKTOP-3JDLG0E
+
+2020-09-09 14:20:34,596 ERROR 3908 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:205:27)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 3908
+hostname: DESKTOP-3JDLG0E
+
