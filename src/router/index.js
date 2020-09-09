@@ -88,30 +88,28 @@ const routes = [{
                 meta: {
                     name: "商品列表",
                     icon: "el-icon-bangzhu",
-                    abcd: "goods",
                 },
-                children: [{
-                    path: "/goods/addgoods",
-                    name: "addgoods",
-                    component: () =>
-                        import ("../views/essentialinformation.vue"),
-                    meta: {
-                        name: "商品列表",
-                        icon: "el-icon-bangzhu",
-                    },
-                }, ],
+                // children: [{
+                //     path: "/goods/addgoods",
+                //     name: "addgoods",
+                //     component: () =>
+                //         import ("../views/essentialinformation.vue"),
+                //     meta: {
+                //         name: "商品列表",
+                //         icon: "el-icon-bangzhu",
+                //     },
+                // }, ],
             },
-            // {
-            //     path: "/goods/addgoods",
-            //     name: "addgoods",
-            //     component: () =>
-            //         import ("../views/essentialinformation.vue"),
-            //     meta: {
-            //         name: "商品列表",
-            //         icon: "el-icon-bangzhu",
-            //         abcd: "goods",
-            //     },
-            // },
+            {
+                path: "/goods/goods",
+                name: "addgoods",
+                component: () =>
+                    import ("../views/essentialinformation.vue"),
+                meta: {
+                    name: "商品列表",
+                    icon: "el-icon-bangzhu",
+                },
+            },
             {
                 path: "/goods/params",
                 name: "params",

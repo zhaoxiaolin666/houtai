@@ -961,3 +961,9 @@
 2020-09-09 17:32:12,620 INFO 2236 [egg-schedule]: register schedule C:\Users\Hansem\Desktop\vue-xiaoxiao\server\node_modules\_egg-multipart@2.10.3@egg-multipart\app\schedule\clean_tmpdir.js
 2020-09-09 17:32:12,620 INFO 2236 [egg-schedule]: register schedule C:\Users\Hansem\Desktop\vue-xiaoxiao\server\node_modules\_egg-logrotator@3.1.0@egg-logrotator\app\schedule\clean_log.js
 2020-09-09 17:32:12,620 INFO 2236 [egg-schedule]: register schedule C:\Users\Hansem\Desktop\vue-xiaoxiao\server\node_modules\_egg-logrotator@3.1.0@egg-logrotator\app\schedule\rotate_by_file.js
+2020-09-09 18:32:08,955 INFO 9424 [egg-schedule]: register schedule C:\Users\Hansem\Desktop\vue-xiaoxiao\server\node_modules\_egg-multipart@2.10.3@egg-multipart\app\schedule\clean_tmpdir.js
+2020-09-09 18:32:08,955 INFO 9424 [egg-schedule]: register schedule C:\Users\Hansem\Desktop\vue-xiaoxiao\server\node_modules\_egg-logrotator@3.1.0@egg-logrotator\app\schedule\clean_log.js
+2020-09-09 18:32:08,955 INFO 9424 [egg-schedule]: register schedule C:\Users\Hansem\Desktop\vue-xiaoxiao\server\node_modules\_egg-logrotator@3.1.0@egg-logrotator\app\schedule\rotate_by_file.js
+2020-09-09 18:32:18,269 INFO 6224 [egg-schedule]: register schedule C:\Users\Hansem\Desktop\vue-xiaoxiao\server\node_modules\_egg-multipart@2.10.3@egg-multipart\app\schedule\clean_tmpdir.js
+2020-09-09 18:32:18,270 INFO 6224 [egg-schedule]: register schedule C:\Users\Hansem\Desktop\vue-xiaoxiao\server\node_modules\_egg-logrotator@3.1.0@egg-logrotator\app\schedule\clean_log.js
+2020-09-09 18:32:18,270 INFO 6224 [egg-schedule]: register schedule C:\Users\Hansem\Desktop\vue-xiaoxiao\server\node_modules\_egg-logrotator@3.1.0@egg-logrotator\app\schedule\rotate_by_file.js

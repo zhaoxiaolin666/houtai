@@ -110,8 +110,8 @@ export default {
       });
     },
     addgoods() {
-      //   this.$router.push({ name: "addgoodss" });
-      this.$router.push("/goods/addgoods");
+      this.$router.push({ name: "addgoods" });
+      //   this.$router.push("/goods/addgoods");
     }
   },
   //页面初始化方法
