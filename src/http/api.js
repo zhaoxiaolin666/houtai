@@ -143,4 +143,26 @@ export default {
     deletecategoriesid({ id }) {
         return service.delete(`goods/${id}`);
     },
+    //添加商品
+    postgoods({
+        goods_name,
+        goods_cat,
+        goods_price,
+        goods_number,
+        goods_weight,
+        goods_introduce,
+        pics,
+        attrs,
+    }) {
+        return service.post("goods", {
+            goods_name,
+            goods_cat,
+            goods_price,
+            goods_number,
+            goods_weight,
+            goods_introduce,
+            pics,
+            attrs,
+        });
+    },
 };

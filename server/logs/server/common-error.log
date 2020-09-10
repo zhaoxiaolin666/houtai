@@ -5110,3 +5110,12 @@ name: "unhandledExceptionError"
 pid: 896
 hostname: DESKTOP-3JDLG0E
 
+2020-09-10 18:58:19,335 ERROR 2220 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:205:27)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 2220
+hostname: DESKTOP-3JDLG0E
+

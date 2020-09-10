@@ -101,7 +101,7 @@ const routes = [{
                 // }, ],
             },
             {
-                path: "/goods/goods",
+                path: "/goods/addgoods",
                 name: "addgoods",
                 component: () =>
                     import ("../views/essentialinformation.vue"),

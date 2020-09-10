@@ -12,6 +12,9 @@
             </div>
           </el-aside>
           <el-main>
+            <div>
+              <navss></navss>
+            </div>
             <div class="cont">
               <router-view></router-view>
             </div>
@@ -25,6 +28,7 @@
 <script>
 import headers from "../components/header";
 import asides from "../components/asides";
+import navss from "../components/nav";
 export default {
   name: "",
   //接收父组件传递过来的参数
@@ -32,16 +36,21 @@ export default {
   //注册组件
   components: {
     headers,
-    asides
+    asides,
+    navss
   },
   // 定义变量
   data() {
-    return {};
+    return {
+      //   arr: [{ authName: "首页", path: "/homepage" }]
+    };
   },
   //事件方法执行
   methods: {},
   //页面初始化方法
-  mounted() {},
+  mounted() {
+    // localStorage.setItem("arr", JSON.stringify(this.arr));
+  },
   //监听方法  click事件等，执行drawFeatures方法
   //监听值变化
   watch: {},

@@ -5,8 +5,27 @@ import user from "./user/user";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-    state: {},
-    mutations: {},
+    state: {
+        arr: [{ authName: "首页", path: "/homepage" }],
+    },
+    mutations: {
+        setarr(state, data) {
+            let a = JSON.parse(localStorage.getItem("arr"));
+            if (!a) {
+                localStorage.setItem("arr", JSON.stringify(state.arr));
+            } else {
+                let b = a.filter((item) => {
+                    return item.authName === data.authName;
+                });
+                console.log(b, a, data, "bbbbb");
+                if (b.length === 0) {
+                    a.push(data);
+                    state.arr = a;
+                    localStorage.setItem("arr", JSON.stringify(a));
+                }
+            }
+        },
+    },
     actions: {},
     modules: {
         user, //user模块

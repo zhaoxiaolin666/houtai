@@ -15,7 +15,7 @@
                   <span>{{item.authName}}</span>
                 </template>
                 <el-menu-item-group v-for="item1 in item.children" :key="item1.path">
-                  <el-menu-item :index="item1.path">
+                  <el-menu-item :index="item1.path" @click="clickpath(item1)">
                     <i :class="item1.icon"></i>
                     <span>{{item1.authName}}</span>
                   </el-menu-item>
@@ -41,11 +41,17 @@ export default {
   components: {},
   // 定义变量
   data() {
-    return {};
+    return {
+      arr: []
+    };
   },
   //事件方法执行
   methods: {
-    ...userActions(["getMenus"])
+    ...userActions(["getMenus"]),
+    clickpath(item) {
+      console.log(item, "eeee");
+      this.$store.commit("setarr", item);
+    }
   },
   //页面初始化方法
   mounted() {
